@@ -49,13 +49,13 @@ def main():
     arg.add_argument("filename", nargs="*", help="filename")
 
     args = arg.parse_args()
-    ic(args)
 
     if args.verbose:
         verbose.set_prog(NAME)
         verbose.enable()
     if args.debug:
         ic.enable()
+    ic(args)
 
 
 
