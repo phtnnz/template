@@ -50,12 +50,15 @@ def main():
 
     args = arg.parse_args()
 
+    if args.debug:
+        ic.enable()
+        ic(args)
     if args.verbose:
         verbose.set_prog(NAME)
         verbose.enable()
-    if args.debug:
-        ic.enable()
-    ic(args)
+    # ... more options ...
+        
+    # ... the action starts here ...
 
 
 
