@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!python
 
 # Copyright 2024 Martin Junius
 #
@@ -19,7 +19,6 @@
 #       TEXT
 
 import sys
-import os
 import argparse
 
 # The following libs must be installed with pip
@@ -27,11 +26,18 @@ from icecream import ic
 # Disable debugging
 ic.disable()
 # Local modules
-from verbose import verbose
+from verbose import verbose, warning, error
 
 VERSION = "0.0 / 2024-xx-xx"
 AUTHOR  = "Martin Junius"
 NAME    = "template"
+
+
+
+# Command line options
+class Options:
+    name = "abc"        # -n --name
+    int  = 99           # -i --int
 
 
 
@@ -52,11 +58,16 @@ def main():
 
     if args.debug:
         ic.enable()
+        ic(sys.version_info)
         ic(args)
     if args.verbose:
         verbose.set_prog(NAME)
         verbose.enable()
     # ... more options ...
+    if args.name:
+        Options.name = args.name
+    if args.int:
+        Options.int  = args.int
         
     # ... the action starts here ...
 
