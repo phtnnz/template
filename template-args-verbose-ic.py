@@ -1,4 +1,4 @@
-#!python
+#!/usr/bin/env python
 
 # Copyright 2024 Martin Junius
 #
@@ -58,8 +58,7 @@ def main():
 
     if args.debug:
         ic.enable()
-        ic(sys.version_info)
-        ic(args)
+        ic(sys.version_info, sys.path, args)
     if args.verbose:
         verbose.set_prog(NAME)
         verbose.enable()
