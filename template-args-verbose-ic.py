@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# Copyright 2024 Martin Junius
+# Copyright 2025 Martin Junius
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -15,8 +15,13 @@
 # limitations under the License.
 
 # ChangeLog
-# Version 0.0 / 2024-xx-xx
+# Version 0.0 / 2025-xx-xx
 #       TEXT
+
+VERSION     = "0.0 / 2024-xx-xx"
+AUTHOR      = "Martin Junius"
+NAME        = "template"
+DESCRIPTION = "mj's Python template"
 
 import sys
 import argparse
@@ -27,10 +32,6 @@ from icecream import ic
 ic.disable()
 # Local modules
 from verbose import verbose, warning, error
-
-VERSION = "0.0 / 2024-xx-xx"
-AUTHOR  = "Martin Junius"
-NAME    = "template"
 
 
 
@@ -44,10 +45,11 @@ class Options:
 def main():
     arg = argparse.ArgumentParser(
         prog        = NAME,
-        description = "Generic python script template",
+        description = DESCRIPTION,
         epilog      = "Version " + VERSION + " / " + AUTHOR)
     arg.add_argument("-v", "--verbose", action="store_true", help="verbose messages")
     arg.add_argument("-d", "--debug", action="store_true", help="more debug messages")
+
     arg.add_argument("-n", "--name", help="example option name")
     arg.add_argument("-i", "--int", type=int, help="example option int")
     arg.add_argument("dirname", help="directory name")
@@ -62,14 +64,12 @@ def main():
     if args.verbose:
         verbose.set_prog(NAME)
         verbose.enable()
-    # ... more options ...
+
     if args.name:
         Options.name = args.name
     if args.int:
         Options.int  = args.int
         
-    # ... the action starts here ...
-
 
 
 if __name__ == "__main__":
